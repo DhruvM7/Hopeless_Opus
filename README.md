@@ -1,2 +1,4 @@
 # Hopeless_Opus
-TechTatva Event.
+
+Website for the Tech-Tatva event of Hopeless Opus, made by Dhruv, Shivam, Girish.
+
