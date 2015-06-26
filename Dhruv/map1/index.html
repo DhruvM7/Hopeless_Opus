@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>XYz</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+<div id="topbar_container">
+	<div id="topbar">
+		<span class="topmenu_element"><span style="color: #4EFF00;">TechTatva 15</span> | Hopeless Opus </span>
+	</div>
+</div>
+
+<div id="container" align="center">
+	<div id="choice" align="center">
+		<form action="javascript:input()" id="form">
+			<input type="text" autofocus id="textbox">
+			<button type="submit" value="submit">Submit</button>
+		</form>
+	</div>
+</div>
+
+<div id="canvas_wrapper">
+	<canvas id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>	
+</div>
+
+
+<div id="bg_wrapper" align="center">
+	<div id="img_wrapper"  align="center">
+		<img src="map.jpg" id="img" alt="hello" onload="javascript:getData()">
+	</div>
+</div>
+
+<script type="text/javascript">
+var c = document.getElementById("myCanvas");
+c.width=document.getElementById("img").naturalWidth;
+c.height=document.getElementById("img").naturalHeight;
+var ctx = c.getContext("2d");
+var img = new Image();
+
+var locations=[], x=[], y=[];
+
+var textbox=document.getElementById("textbox");
+var oldX=0,oldY=0;
+
+function getData()
+{
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+	  {  xmlhttp=new XMLHttpRequest();  }
+	else
+	  {  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	 	if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {    	
+	    	var xml = xmlhttp.responseText,
+	  		xmlDoc = $.parseXML( xml ),
+	  		$xml = $( xmlDoc );
+			$xml.find('node').each(function()
+			{
+				locations.push($(this).find('location').text());
+				x.push($(this).find('x').text());
+				y.push($(this).find('y').text());
+			});
+			setup();
+	    }
+	  }
+	xmlhttp.open("GET","nodes.xml",true);
+	xmlhttp.send();
+}
+
+function setup()
+{
+	oldX=x[0]; oldY=y[0];
+	ctx.beginPath();
+	ctx.strokeStyle = '#4EFF00';
+	ctx.lineWidth = 1;
+  
+    img.onload = function()
+    {  ctx.drawImage(img,oldX-15,oldY-47);  }
+   	img.src = 'pin.png';
+}
+
+function input()
+{
+	var input=textbox.value.toLowerCase();
+	for(var i=0; i<locations.length; i++)
+	{
+		if(input===locations[i].toLowerCase())
+		{
+			var newX=x[i]; 
+			var newY=y[i];	
+   			ctx.drawImage(img,newX-15,newY-47);
+   			ctx.clearRect(oldX-15,oldY-47,30,47);
+			ctx.moveTo(oldX, oldY);
+			ctx.lineTo(newX, newY);
+			ctx.stroke();
+
+			oldX=newX; oldY=newY;
+			break;
+		}
+	}
+	document.getElementById("form").reset();
+}
+</script>
+
+</body>
+</html>
