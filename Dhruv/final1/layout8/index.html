@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>XYz</title>
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Indie+Flower" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="../res/jquery.js"></script>
+</head>
+<body>
+
+<div id="topbar_container">
+	<div id="topbar">
+		<span class="topmenu_element" style="float: left; margin-left: 10px;"><span style="color: #1098F7;">TechTatva '15</span> Hopeless Opus </span>
+		<span style="float: right; margin-right: 10px;">
+		<span class="topmenu_element">Rules</span>
+		<span class="topmenu_element"> | Logout</span>
+		</span>
+	</div>
+</div>
+
+<div id="footer_container">
+	<div id="footer">
+		<span class="topmenu_element" style="float: left; margin-left: 10px;">
+			<span style="color: #1098F7;">TechTatva '15</span> Hopeless Opus 
+		</span>
+		<span class="topmenu_element" style="float: right; margin-right: 10px;">About TechTatva | Other Events</span>
+	</div>
+</div>
+
+<div id="container">
+
+	<div id="question">
+		<p style="color:red; text-shadow: 1px 1px 2px black; font-size: 1.1em;">Currently accepted inputs are:<br>
+		Manipal University, mu, mit, kc, mic<br>
+		Input is NOT case sensitive
+		</p>
+
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+
+		<p>
+		Purto malis inermis ius ne, ne errem omnes nec. Mei movet oporteat mediocrem an, aeterno veritus efficiantur te vix, nec meis oblique ut. Integre eruditi definiebas nam ei, mundi impetus pertinacia nam at. Posidonium complectitur in quo, natum prompta vel et. Ei oblique aliquam cum, ut mea solum semper dicunt. Et pri viris cotidieque, ut sed efficiendi interesset.
+		</p>
+
+		<p>
+		Te eam quidam praesent, quo ex ipsum labore aliquando. Ad eros oporteat scriptorem duo, no prima nihil molestie quo, mea modus volumus cu. Sit legimus inimicus eu, vis id sensibus torquatos necessitatibus. Duo te falli senserit, et mel everti bonorum.
+
+		</p>
+
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+
+		<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</div>
+
+	<div id="choice">
+		<form action="javascript:input()" id="form">
+			<input type="text" autofocus id="textbox">
+			<button type="submit" value="submit">Submit</button>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	function getData()
+	{;}
+	function map()
+	{
+		$("#canvas_wrapper").fadeToggle();
+	}
+</script>
+
+<div id="canvas_wrapper">	
+	<canvas id="myCanvas">Your browser does not support the HTML5 canvas tag.</canvas>
+	<img src="../res/map.jpg" id="img" alt="hello" onload="javascript:getData()">		
+</div>
+
+<div id="bg_img_wrapper">
+	<div class="vig"></div>
+	<img src="../res/bg.jpg" id="bg_img">
+</div>
+
+<div id="icons">
+<a href="javascript:map()" class="maplink">
+	<img src="../res/map22.png"><br><span>Show/Hide Map</span>
+</a>
+<a href="javascript:leaderboard()" class="maplink"> 
+	<img src="../res/board.png"><br>
+	Show/Hide Leaderboard
+</a>
+</div>
+
+<div id="leaderboard">
+	Leaderboard
+	<hr>
+	Players ahead: 123<br>
+	Players on par: 456<br>
+	Players behind: 789<br>
+</div>
+
+<script type="text/javascript">
+var c = document.getElementById("myCanvas");
+c.width=document.getElementById("img").naturalWidth;
+c.height=document.getElementById("img").naturalHeight;
+var ctx = c.getContext("2d");
+var img = new Image();
+
+var locations=[], x=[], y=[];
+
+var textbox=document.getElementById("textbox");
+var oldX=0,oldY=0;
+
+function getData()
+{
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+	  {  xmlhttp=new XMLHttpRequest();  }
+	else
+	  {  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  }
+	xmlhttp.onreadystatechange=function()
+	  {
+	 	if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {    	
+	    	var xml = xmlhttp.responseText,
+	  		xmlDoc = $.parseXML( xml ),
+	  		$xml = $( xmlDoc );
+			$xml.find('node').each(function()
+			{
+				locations.push($(this).find('location').text());
+				x.push($(this).find('x').text());
+				y.push($(this).find('y').text());
+			});
+			setup();
+	    }
+	  }
+	xmlhttp.open("GET","../res/nodes.xml",true);
+	xmlhttp.send();
+}
+
+function setup()
+{
+	oldX=x[0]; oldY=y[0];
+	ctx.beginPath();
+	ctx.strokeStyle = '#4EFF00';
+	ctx.lineWidth = 2;
+  
+    img.onload = function()
+    {  ctx.drawImage(img,oldX-15,oldY-47);  }
+   	img.src = '../res/pin.png';
+}
+
+function input()
+{
+	var input=textbox.value.toLowerCase();
+	for(var i=0; i<locations.length; i++)
+	{
+		if(input===locations[i].toLowerCase())
+		{
+			var newX=x[i]; 
+			var newY=y[i];	
+   			
+   			ctx.clearRect(oldX-15,oldY-47,30,47);
+			ctx.moveTo(oldX, oldY);
+			ctx.lineTo(newX, newY);
+			
+
+			oldX=newX; oldY=newY;
+
+			$("#question").append('<p>New Text!!<br> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>');
+			$("p:last-child").css("opacity","0");
+			
+			$("#canvas_wrapper").fadeIn();
+			setTimeout(function(){ctx.stroke(); ctx.drawImage(img,newX-15,newY-47);},500);
+			setTimeout(function()
+			{
+				$("#canvas_wrapper").fadeOut();//map();
+				$("#container").animate({ scrollTop: $("#container")[0].scrollHeight}, 750);		
+				$("p:last-child").animate({opacity:"1"},1000);
+			}, 2000);
+			document.getElementById("form").reset();
+			return;
+		}
+	}
+	alert("Unrecognized Input");
+	document.getElementById("form").reset();
+}
+
+function leaderboard()
+{
+	$("#leaderboard").fadeToggle();
+}
+</script>
+
+</body>
+</html>

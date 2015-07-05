@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "utf-8">
+	<meta http-equiv = "X-UA-Compatible" content = "IE = edge">
+	<meta name = "viewport" content = "width = device - width, initial-scale = 1">
+	<title>Hopeless Opus</title>
+   
+    <!--favicon generator-->
+	<link rel="apple-touch-icon" sizes="57x57" href="images/icons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="images/icons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/icons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/icons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/icons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/icons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/icons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/icons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="images/icons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/icons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<!--bootstrap css-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!--Google Fonts-->
+	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+
+	<!--frontpage style-->
+	<link rel="stylesheet" type="text/css" href="frontpagestyle.css">
+	<link rel="stylesheet" type="text/css" href="css/hoshi.css">
+	<link rel="stylesheet" type="text/css" href="css/menustyle.css">
+
+	<!--script-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src = "Js/menustyle.js"></script>
+
+</head>
+<body id = "target" style = "background:none !important">
+
+<!-- <div id="topbar_container">
+	<div id="topbar">
+		<span class="topmenu_element" style="float: left; margin-left: 10px;"><span style="color: #1098F7;">TechTatva '15</span> Hopeless Opus </span>
+		<span style="float: right; margin-right: 10px;">
+		<span class="topmenu_element">Rules</span>
+		<span class="topmenu_element"> | Logout</span>
+		</span>
+	</div>
+</div> -->
+
+<div id="footer_container">
+	<div id="footer">
+		<span class="topmenu_element" style="float: left; margin-left: 10px;">
+			<span style="color: #1098F7;">TechTatva '15</span> Hopeless Opus 
+		</span>
+		<span class="topmenu_element" style="float: right; margin-right: 10px;">About TechTatva | Other Events</span>
+	</div>
+</div>
+
+<div class="container" id="container">
+	<div>
+	<div id="heading">
+		<h1>Hopeless Opus</h1><span style="font-size: 1.1em;">where givin up is not an option</span>
+	</div>
+	</div><div>
+	<div id="about">
+		<div style="text-align:center; font-size: 1.2em;">Welcome!</div><br>
+		You are about to embark on a journey which will make you walk on the thin line between life and death.
+		There is an SOS situation.<br><br>
+		A team of our college faculty was working on a top-secret defence project developing a bio-weapon. They seem to have struck the wrong chord and a miscalculation somewhere lead you between a rock and a hard place.
+		Race against time, put your wits to work and emerge triumphant in this Apocalypse! <br>(ans=yes)
+	</div>
+	</div>
+	<br>
+	<div id="input_container">
+		<div class = "col-md-12" id = "inputfield" style = "overflow:hidden">
+			<span class="input--hoshi" id = "nothing">				
+				<input class="input__field input__field--hoshi" type="text" id="input-4" onkeydown="if (event.keyCode == 13) { input(); return false; }"/>				
+				<label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+					<span class="input__label-content--hoshi" id="x"><h3>Are You Ready?</h3></span>
+				</label>
+				
+			</span>
+		</div>
+	</div>			
+</div> <!--end container-->
+
+	<div id="rules">
+		<div style="text-align: center; color:#4EFF00; font-size: 2em;">Instructions and Rules</div>
+		<ol>
+		<li>Every location will need you to answer a question or solve a problem in order to proceed.</li>
+		<li>The correct answer will lead you to an option of three different locations or choices.</li>
+		<li>One choice is the most efficient and is on the route of the shortest distance in the map.<br>
+		One takes longer and has many detours.<br>
+		One choice leads to a dead-end. Choosing the dead end will set you back with a time out.<br>
+		<li>Duration of the time outs will increase as the player progresses in the game.</li>
+		<li>Answer to each question will be subjective.</li>
+		<li>Everyday, a certain number of levels will be put up. On completing these, the player cannot go further on that day.</li>
+		<li>The player who finds the antidote first is the winner.</li>
+		</ol>
+		Bards win serenade our hero and songs will be sung around all the seven continents about the ZombieSlayer!<br>
+		<div style="text-align: center; font-size: 2em;"><a href="javascript:rules()">Got it!</a></div>
+	</div>
+
+	<button class="menu-button" id="open-button">
+		<span class = "glyphicon glyphicon-cog" style="color: #4EFF00; font-size: 1.2em;"></span>
+	</button>
+	<div class="menu-wrap">
+		<nav class="menu">
+			<div class="profile"><h3>User Name</h3></div>
+			<div class="link-list">
+				<a href="javascript:rules()"><span>Rules</span></a>
+				<a href="#"><span>Other Games</span></a>
+				<a href="#"><span>Leader Board </span></a>
+				<a href="#"><span class = "glyphicon glyphicon-off"></span><span> Logout</span></a>
+			</div>
+			<div class="icon-list">
+				<a href="#"><i class="glyphicon glyphicon-home"></i></a>				
+				<a href="www.googleplus.com"><img src = "images/instaicon.png" style="margin-bottom:5px;max-width:23px"></a>
+			</div>
+		</nav> 
+	</div>
+
+	<div id="bg_wrapper" align="center">
+	<div id="img_wrapper"  align="center">
+		<img src="images/bg.jpg" id="img">
+	</div>
+	</div>
+
+<script type="text/javascript">
+	var img=document.getElementById("img");
+	$("#img").fadeIn("slow");
+	var base="images/";
+	var imglist=["bg", "forest 1", "forest clouds", "lighthouse","fc posterize","auto", "auto 2","bridge"];
+
+	setTimeout(function(){$("#heading").slideToggle("slow");},300);
+	setTimeout(function(){$("#about").slideToggle("slow");},1500);
+	setTimeout(function(){$("#input_container").fadeIn();},3000);
+
+	setTimeout(slideshow(), 2000);
+	
+	function slideshow()
+	{
+		counter=1;  //skip first element, it's already loaded
+		setInterval(function()
+		{ 
+			$("#img").fadeOut();
+			setTimeout( function() {img.src=base+imglist[counter++]+".jpg";}, 400);		
+			$("#img").fadeIn("slow");
+			if(counter==imglist.length)
+				counter=0;
+		}, 5000);
+	}
+
+	function input()
+	{
+		var str=document.getElementById("input-4");
+		if(str.value==="yes")
+			window.location.href = "layout8";
+		else 
+			str.value="Doesn't Look Like it";		
+	}
+
+	function rules()
+	{
+		$("#rules").fadeToggle();
+	}
+	
+</script>
+</body>
+</html>
